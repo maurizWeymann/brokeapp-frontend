@@ -1,3 +1,5 @@
+[![CI](https://github.com/maurizWeymann/brokeapp-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/maurizWeymann/brokeapp-frontend/actions/workflows/ci.yml)
+
 # brokeapp-frontend
 
 ## Project setup
