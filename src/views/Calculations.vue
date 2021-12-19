@@ -1,6 +1,41 @@
 <template>
   <div class="calculations">
     <h1>This is an calculation page</h1>
+    <form>
+      <div class="form-row align-items-center">
+        <div class="row align-items-center">
+          <div class="col-auto my-1">
+            <label class="mr-sm-2" >initial investment</label>
+            <input type="text" class="form-control" placeholder="1000,00">
+          </div>
+          <div class="col-auto my-1">
+            <label class="mr-sm-2" >years to accumulate</label>
+            <input type="text" class="form-control" placeholder="10">
+          </div>
+          <div class="col-auto my-1">
+            <label class="mr-sm-2" >additional contribution</label>
+            <input type="text" class="form-control" placeholder="500,00">
+          </div>
+        </div>
+        <div class="col-auto my-1">
+          <div class="col-auto my-1">
+            <label class="mr-sm-2" >interest rate</label>
+            <input type="text" class="form-control" placeholder="10%">
+          </div>
+          <label class="mr-sm-2" for="inlineFormCustomSelect">compound crequency</label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Choose...</option>
+            <option value="Daily">One</option>
+            <option value="Monthly">Two</option>
+            <option value="Yearly">Three</option>
+          </select>
+        </div>
+        <div class="col-auto my-1">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
     <line-chart v-for="(dataSet, index) in datasets" :x-values="dataSet.xValues" :y-values="dataSet.yValues" :key="index"></line-chart>
   </div>
 </template>
@@ -24,6 +59,20 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+
+    fetch('http://localhost:8080/api/v1/calculations', requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .then(result => result.forEach(calculation => {
+        this.calculation.push(calculation)
+      }))
+      .catch(error => console.log('error', error))
   }
 }
 
