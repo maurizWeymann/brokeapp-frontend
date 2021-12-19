@@ -1,6 +1,5 @@
 <template>
   <div class="calculations">
-    <h1>This is an calculation page</h1>
     <form>
       <div class="form-row align-items-center">
         <div class="row align-items-center">
@@ -31,7 +30,7 @@
           </select>
         </div>
         <div class="col-auto my-1">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </div>
     </form>
@@ -79,5 +78,7 @@ export default {
 </script>
 
 <style scoped>
-
+.calculations{
+  background-color: #c9c8c8;
+}
 </style>
