@@ -1,6 +1,6 @@
 <template>
-  <div class="calculations">
-    <form>
+  <div class="calculations row pt-5" v-for="(dataSet, index) in datasets" :key="index">
+    <form class="col">
       <div class="form-row align-items-center">
         <div class="row align-items-center">
           <div class="col-auto my-1">
@@ -21,12 +21,12 @@
             <label class="mr-sm-2" >interest rate</label>
             <input type="text" class="form-control" placeholder="10%">
           </div>
-          <label class="mr-sm-2" for="inlineFormCustomSelect">compound crequency</label>
+          <label class="mr-sm-2" >compound crequency</label>
           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
             <option selected>Choose...</option>
-            <option value="Daily">One</option>
-            <option value="Monthly">Two</option>
-            <option value="Yearly">Three</option>
+            <option value="daily">Daily</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
           </select>
         </div>
         <div class="col-auto my-1">
@@ -35,7 +35,7 @@
       </div>
     </form>
 
-    <line-chart v-for="(dataSet, index) in datasets" :x-values="dataSet.xValues" :y-values="dataSet.yValues" :key="index"></line-chart>
+    <line-chart class="col" :x-values="dataSet.xValues" :y-values="dataSet.yValues"></line-chart>
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
         },
         {
           xValues: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-          yValues: [30, 40, 35, 50, 49, 60, 70, 91]
+          yValues: [30, 40, 35, 50, 49, 60, 10, 1]
         }
       ]
     }
