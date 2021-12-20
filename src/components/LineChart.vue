@@ -30,6 +30,14 @@ export default {
       ]
     }
   },
+  watch: {
+    xValues () {
+      this.chartOptions.xaxis.categories = this.xValues
+    },
+    yValues () {
+      this.series[0].data = this.yValues
+    }
+  },
   props: {
     xValues: {
       type: Array,
