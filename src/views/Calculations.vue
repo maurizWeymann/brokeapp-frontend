@@ -1,6 +1,6 @@
 <template>
   <div class="calculations row pt-5" v-for="(calculation, index) in calculations" :key="index">
-    <calculation-item></calculation-item>
+    <calculation-item :calculation="calculation"></calculation-item>
   </div>
 </template>
 
