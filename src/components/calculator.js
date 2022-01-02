@@ -1,27 +1,39 @@
 export default function calculate (initialInvestment, yearToAccumulate, interestRate) {
   // let initialInvestment
   // let yearsToAccumulate
-  let xes = []
-  let yes = []
+  let xValueArray = []
+  let yValueArray = []
+  let yValueCalculation = []
+  let yCalculationArrayIndex
+  let oneTenthYearToAccumulate
+  // InterestRate
   if (interestRate === 0) {
     interestRate = 0
   }
-  const oneTenthYearToAccumulate = yearToAccumulate / 10
-  for (let i = 0; i < 10; i++) {
-    xes[i] = oneTenthYearToAccumulate * i
+  // yearsToAccumulate
+  if (yearToAccumulate === 0) {
+    // oneTenthYearToAccumulate = 1
+  } else if (yearToAccumulate > 20) {
   }
-  if (initialInvestment > 0) {
-    yes.push(initialInvestment)
-    for (let i = 1; i <= yearToAccumulate; i++) {
-      yes[i] = yes[i - 1] + (yes[i - 1] * interestRate / 100)
-      // xes[i] = i
+  for (let i = 0; i < yearToAccumulate; i++) {
+    yValueCalculation[i] = initialInvestment * ((interestRate + 100) / 100) ** (12 * i / 12)
+  }
+  if (yearToAccumulate <= 20) {
+    yValueCalculation.forEach(element => yValueArray.push(Math.round(element * 100) / 100))
+    // yValueArray = yValueCalculation
+  } else if (yearToAccumulate > 20) {
+    oneTenthYearToAccumulate = yearToAccumulate / 10
+    yValueArray[0] = Math.round((yValueCalculation[0.00] * 100) / 100)
+    xValueArray.push(1)
+    for (let i = 1; i < 10; i++) {
+      yCalculationArrayIndex = Math.round(oneTenthYearToAccumulate * (i))
+      console.log(yCalculationArrayIndex)
+      xValueArray.push(yCalculationArrayIndex)
+      yValueArray[i] = Math.round(yValueCalculation[yCalculationArrayIndex] * 100) / 100
     }
-  } else {
-    yes = [1, 2, 3]
-    xes = [100, 200, 300, 400, 5, 6]
   }
   return {
-    xValues: xes,
-    yValues: yes
+    yValues: yValueArray,
+    xValues: xValueArray
   }
 }

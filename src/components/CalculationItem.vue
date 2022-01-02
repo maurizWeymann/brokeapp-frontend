@@ -34,6 +34,8 @@
     </div>
   </form>
   <line-chart class="col" :x-values="xValues" :y-values="yValues"></line-chart>
+  <p>xValues {{xValues}}</p>
+  <p>yValues {{yValues}}</p>
 </template>
 
 <script>

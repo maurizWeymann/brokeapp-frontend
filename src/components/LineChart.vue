@@ -24,7 +24,7 @@ export default {
       },
       series: [
         {
-          name: 'series-1',
+          name: 'period',
           data: this.yValues
         }
       ]
