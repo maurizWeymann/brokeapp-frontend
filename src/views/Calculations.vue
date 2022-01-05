@@ -27,7 +27,6 @@ export default {
       .then(response => response.json())
       .then(result => result.forEach(calculation => {
         this.calculations.push(calculation)
-        console.warn(result)
       }))
       .catch(error => console.log('error', error))
   }
