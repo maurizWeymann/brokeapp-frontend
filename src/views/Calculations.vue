@@ -18,15 +18,15 @@ export default {
     CalculationItem
   },
   mounted () {
-    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/calculations'
+    // const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/calculations'
+    const endpoint = 'https://brokeapp-frontend.herokuapp.com/api/v1/calculations'
+    // const endpoint = 'http://localhost:8080/api/v1/calculations'
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     }
-
     fetch(endpoint, requestOptions)
       .then(response => response.json())
-      // .then(result => console.log(result))
       .then(result => result.forEach(calculation => {
         this.calculations.push(calculation)
       }))
