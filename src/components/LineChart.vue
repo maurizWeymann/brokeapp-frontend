@@ -33,6 +33,7 @@ export default {
   watch: {
     xValues () {
       this.chartOptions.xaxis.categories = this.xValues
+      console.debug(`LineChart: ${this.chartOptions}`)
     },
     yValues () {
       this.series[0].data = this.yValues

@@ -6,22 +6,18 @@
           <label class="mr-sm-2" >initial investment</label>
           <input type="number" class="form-control"  v-model="initialInvestment" @change="calculate" required>
           <div class="invalid-feedback">Please provide an amount</div>
-          {{calculation.initialInvestment}}
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2" >years to accumulate</label>
           <input type="number" class="form-control" placeholder="1000" v-model="yearsToAccumulate" @change="calculate" required>
-          {{calculation.yearsToAccumulate}}
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2" >additional contribution</label>
           <input type="number" class="form-control" placeholder="500,00" v-model="additionalContribution" @change="calculate" required>
-          {{calculation.additionalContribution}}
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2" >interest rate</label>
           <input type="number" class="form-control" placeholder="10%" v-model="interestRate" @change="calculate" required>
-          {{calculation.interestRate}}
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2" >compound frequency</label>
@@ -31,7 +27,6 @@
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>
           </select>
-          {{calculation.compoundFrequency}}
         </div>
       </div>
       <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center ">
@@ -65,13 +60,13 @@ export default {
   },
   data () {
     return {
-      initialInvestment: this.initialInvestment,
-      yearsToAccumulate: this.yearsToAccumulate,
-      additionalContribution: this.additionalContribution,
-      interestRate: this.interestRate,
-      compoundFrequency: this.compoundFrequency,
-      xValues: this.xValues,
-      yValues: this.yValues,
+      initialInvestment: this.calculation.initialInvestment,
+      yearsToAccumulate: this.calculation.yearsToAccumulate,
+      additionalContribution: this.calculation.additionalContribution,
+      interestRate: this.calculation.interestRate,
+      compoundFrequency: this.calculation.compoundFrequency,
+      xValues: [],
+      yValues: [],
       serverValidationMessages: [],
       calculationId: this.calculation.id
     }
@@ -182,6 +177,9 @@ export default {
         })
       return valid
     }
+  },
+  mounted () {
+    this.calculate()
   }
 }
 </script>
