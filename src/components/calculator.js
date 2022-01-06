@@ -17,12 +17,8 @@ export default function calculate (initialInvestment, yearToAccumulate, interest
   } else if (yearToAccumulate > 20) {
   }
   for (let i = 0; i <= yearToAccumulate; i++) {
-    if (additionalContribution === 0) {
-      yValueCalculation[i] = (initialInvestment * ((interestRate + 100) / 100) ** (12 * i / 12))
-    } else {
-      //kalkulation passt noch nicht
-      yValueCalculation[i] = (initialInvestment * ((1 + ((interestRate / 100) / 12)) ** (1 + (i * 12) - 1))) / ((interestRate / 100) / 12)
-    }
+    yValueCalculation[i] = (initialInvestment * ((interestRate + 100) / 100) ** (12 * i / 12))
+    // initialInvestment = yValueCalculation[i] + additionalContribution
   }
   if (yearToAccumulate <= 20) {
     yValueCalculation.forEach(element => yValueArray.push(Math.round(element * 100) / 100))
