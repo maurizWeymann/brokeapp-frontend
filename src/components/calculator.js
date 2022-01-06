@@ -16,9 +16,10 @@ export default function calculate (initialInvestment, yearToAccumulate, interest
     // oneTenthYearToAccumulate = 1
   } else if (yearToAccumulate > 20) {
   }
-  for (let i = 0; i < yearToAccumulate; i++) {
+  for (let i = 0; i <= yearToAccumulate; i++) {
     yValueCalculation[i] = initialInvestment * ((interestRate + 100) / 100) ** (12 * i / 12)
   }
+  console.log('Länge vom Kalkulierten Array ' + yValueCalculation.length)
   if (yearToAccumulate <= 20) {
     yValueCalculation.forEach(element => yValueArray.push(Math.round(element * 100) / 100))
     // yValueArray = yValueCalculation
@@ -26,7 +27,7 @@ export default function calculate (initialInvestment, yearToAccumulate, interest
     oneTenthYearToAccumulate = yearToAccumulate / 10
     yValueArray[0] = Math.round((yValueCalculation[0.00] * 100) / 100)
     xValueArray.push(1)
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i <= 10; i++) {
       yCalculationArrayIndex = Math.round(oneTenthYearToAccumulate * (i))
       console.log(yCalculationArrayIndex)
       xValueArray.push(yCalculationArrayIndex)
