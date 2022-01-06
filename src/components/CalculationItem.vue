@@ -36,7 +36,7 @@
       </div>
     </div>
   </form>
-  <line-chart class="col" :x-values="xValues" :y-values="yValues"></line-chart>
+  <line-chart class="col" :x-values="xValues" :y-values="yValues" :key="keyToChange"></line-chart>
   <div v-if="this.serverValidationMessages">
     <ul>
       <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
@@ -68,7 +68,8 @@ export default {
       xValues: [],
       yValues: [],
       serverValidationMessages: [],
-      calculationId: this.calculation.id
+      calculationId: this.calculation.id,
+      keyToChange: 0
     }
   },
   emits: ['created'],
@@ -81,6 +82,7 @@ export default {
       console.log(this.xValues)
       console.log(`y:  ${this.yValues} `)
       console.log(this.yValues)
+      this.keyToChange += 1
     },
     async createCalculation () {
       console.log(this.initialInvestment)
@@ -178,7 +180,7 @@ export default {
       return valid
     }
   },
-  mounted () {
+  created () {
     this.calculate()
   }
 }
