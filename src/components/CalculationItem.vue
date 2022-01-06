@@ -75,7 +75,7 @@ export default {
   emits: ['created'],
   methods: {
     calculate () {
-      const result = calculate(this.initialInvestment, this.yearsToAccumulate, this.interestRate, this.compoundFrequency)
+      const result = calculate(this.initialInvestment, this.yearsToAccumulate, this.interestRate, this.compoundFrequency, this.additionalContribution)
       this.xValues = result.xValues
       this.yValues = result.yValues
       console.log(`x:  ${this.xValues} `)
