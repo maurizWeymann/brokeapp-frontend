@@ -1,6 +1,12 @@
 <template>
-  <navbar></navbar>
-  <router-view/>
+  <div class="page">
+    <div class="wrapperClass" style="min-height:100vh; max-width:850px; margin: 0 auto;">
+      <div class="borderClass"  style=" width:100%; height: 100%; ">
+        <navbar></navbar>
+        <router-view/>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -15,8 +21,9 @@ export default {
 </script>
 
 <style>
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -34,5 +41,9 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.page {
+  background-image: linear-gradient(#110d33, #372aa8, #455af3, #3d6bf4, #173466);
 }
 </style>

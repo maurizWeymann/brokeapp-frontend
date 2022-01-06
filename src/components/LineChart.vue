@@ -2,7 +2,7 @@
   <div>
     <apexchart
       width="500"
-      type="line"
+      type="area"
       :options="chartOptions"
       :series="series"
     ></apexchart>
@@ -16,10 +16,34 @@ export default {
     return {
       chartOptions: {
         chart: {
-          id: 'vuechart-example'
+          id: 'vuechart-example',
+          toolbar: {
+            show: false
+          }
+        },
+        dataLabels: {
+          enabled: false
         },
         xaxis: {
-          categories: this.xValues
+          categories: this.xValues,
+          labels: {
+            style: {
+              colors: '#ffffff',
+              fontFamily: 'Poppins'
+            }
+          }
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: '#ffffff',
+              fontFamily: 'Poppins'
+            }
+          }
+        },
+        annotations: {
+          yaxis: [],
+          xaxis: []
         }
       },
       series: [

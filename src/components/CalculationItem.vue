@@ -3,40 +3,42 @@
     <div class="form-row align-items-center">
       <div class="form-row align-items-center">
         <div class="col-auto my-1">
-          <label class="mr-sm-2" >initial investment</label>
-          <input type="number" class="form-control"  v-model="initialInvestment" @change="calculate" required>
+          <label class="mr-sm-2 text-light " >initial investment</label>
+          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0"  v-model="initialInvestment" @change="calculate" required>
           <div class="invalid-feedback">Please provide an amount</div>
         </div>
         <div class="col-auto my-1">
-          <label class="mr-sm-2" >years to accumulate</label>
-          <input type="number" class="form-control" placeholder="1000" v-model="yearsToAccumulate" @change="calculate" required>
+          <label class="mr-sm-2 text-light" >years to accumulate</label>
+          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" placeholder="1000" v-model="yearsToAccumulate" @change="calculate" required>
         </div>
         <div class="col-auto my-1">
-          <label class="mr-sm-2" >additional contribution</label>
-          <input type="number" class="form-control" placeholder="500,00" v-model="additionalContribution" @change="calculate" required>
+          <label class="mr-sm-2 text-light" >additional contribution</label>
+          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" placeholder="500,00" v-model="additionalContribution" @change="calculate" required>
         </div>
         <div class="col-auto my-1">
-          <label class="mr-sm-2" >interest rate</label>
-          <input type="number" class="form-control" placeholder="10%" v-model="interestRate" @change="calculate" required>
+          <label class="mr-sm-2 text-light" >interest rate</label>
+          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" placeholder="10%" v-model="interestRate" @change="calculate" required>
         </div>
         <div class="col-auto my-1">
-          <label class="mr-sm-2" >compound frequency</label>
-          <select class="form-select " id="inlineFormCustomSelect" v-model="compoundFrequency" required>
-            <option value="" selected disabled>Choose...</option>
+          <label class="mr-sm-2 text-light" >compound frequency</label>
+          <select class="form-select bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" id="inlineFormCustomSelect" v-model="compoundFrequency" required>
             <option value="daily">Daily</option>
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>
           </select>
         </div>
       </div>
-      <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center ">
-        <button type="submit" class="btn btn-primary" @click="updateCalculation(calculationId)">Update</button>
+      <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center pt-3 ">
+        <button type="submit" class="btn btn- btn-primary" @click="updateCalculation(calculationId)">Update</button>
         <button type="submit" class="btn btn-primary" @click="createCalculation">Save</button>
-        <button type="submit" class="btn btn-danger"  @click="deleteCalculation(calculationId)">Delete</button>
+        <button type="submit" class="btn btn-close bg-danger" style="height: 2rem; width: 2rem;" @click="deleteCalculation(calculationId)"></button>
       </div>
     </div>
   </form>
-  <line-chart class="col" :x-values="xValues" :y-values="yValues" :key="keyToChange"></line-chart>
+  <div class="col">
+    <line-chart class="pt-3" :x-values="xValues" :y-values="yValues" :key="keyToChange"></line-chart>
+    <h2 class="text-light">final earning: {{totalEarning}}€</h2>
+  </div>
   <div v-if="this.serverValidationMessages">
     <ul>
       <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
@@ -44,8 +46,8 @@
       </li>
     </ul>
   </div>
-  <p>xValues {{xValues}}</p>
-  <p>yValues {{yValues}}</p>
+<!--  <p>xValues {{xValues}}</p>-->
+<!--  <p>yValues {{yValues}}</p>-->
 </template>
 
 <script>
@@ -69,6 +71,7 @@ export default {
       yValues: [],
       serverValidationMessages: [],
       calculationId: this.calculation.id,
+      totalEarning: 0,
       keyToChange: 0
     }
   },
@@ -83,6 +86,7 @@ export default {
       console.log(`y:  ${this.yValues} `)
       console.log(this.yValues)
       this.keyToChange += 1
+      this.totalEarning = this.yValues[this.yValues.length - 1].toLocaleString()
     },
     async createCalculation () {
       console.log(this.initialInvestment)
@@ -187,5 +191,21 @@ export default {
 </script>
 
 <style scoped>
+input:focus{
+  box-shadow: 0 0 4px 0.05rem rgba(255, 255, 255, 0.55);
+  border-bottom: 0;
+}
+select:focus{
+  box-shadow: 0 0 4px 0.05rem rgba(255, 255, 255, 0.55);
+  border-bottom: 0;
+}
+option:focus{
+  box-shadow: 0 0 4px 0.05rem rgba(255, 255, 255, 0.55);
+  border-bottom: 0;
+}
+option{
+  box-shadow: 0 0 4px 0.05rem rgba(255, 255, 255, 0.55);
+  background-color: rgba(41, 91, 218, 0.75);
+}
 
 </style>
