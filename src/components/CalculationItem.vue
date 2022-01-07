@@ -29,9 +29,9 @@
         </div>
       </div>
       <div class="col-auto d-grid gap-2 d-md-flex justify-content-md-center pt-3 ">
-        <button type="submit" class="btn btn- btn-primary" @click="updateCalculation(calculationId)">Update</button>
+        <button type="submit" class="btn btn-primary" @click="updateCalculation(calculationId)">Update</button>
         <button type="submit" class="btn btn-primary" @click="createCalculation">Save</button>
-        <button type="submit" class="btn btn-close bg-danger" style="height: 2rem; width: 2rem;" @click="deleteCalculation(calculationId)"></button>
+        <button type="submit" class="btn btn-danger"  @click="deleteCalculation(calculationId)">Delete</button>
       </div>
     </div>
   </form>
