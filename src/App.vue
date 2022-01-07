@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="wrapperClass" style="min-height:100vh; max-width:850px; margin: 0 auto;">
-      <div class="borderClass"  style=" width:100%; height: 100%; ">
+      <div class="borderClass pb-2"  style=" width:100%; height: 100%; ">
         <navbar></navbar>
         <router-view/>
       </div>

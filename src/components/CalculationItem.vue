@@ -4,24 +4,24 @@
       <div class="form-row align-items-center">
         <div class="col-auto my-1">
           <label class="mr-sm-2 text-light " >initial investment</label>
-          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0"  v-model="initialInvestment" @change="calculate" required>
+          <input type="number" v-model="initialInvestment" @change="calculate" required class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0"  >
           <div class="invalid-feedback">Please provide an amount</div>
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2 text-light" >years to accumulate</label>
-          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" placeholder="1000" v-model="yearsToAccumulate" @change="calculate" required>
+          <input type="number" placeholder="1000" v-model="yearsToAccumulate" @change="calculate" required class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" >
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2 text-light" >additional contribution</label>
-          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" placeholder="500,00" v-model="additionalContribution" @change="calculate" required>
+          <input type="number" placeholder="500,00" v-model="additionalContribution" @change="calculate" required class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0">
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2 text-light" >interest rate</label>
-          <input type="number" class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" placeholder="10%" v-model="interestRate" @change="calculate" required>
+          <input type="number" placeholder="10%" v-model="interestRate" @change="calculate" required class="form-control bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0">
         </div>
         <div class="col-auto my-1">
           <label class="mr-sm-2 text-light" >compound frequency</label>
-          <select class="form-select bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0" id="inlineFormCustomSelect" v-model="compoundFrequency" required>
+          <select id="inlineFormCustomSelect" v-model="compoundFrequency" required class="form-select bg-transparent text-light rounded-0 border-bottom-1 border-top-0 border-start-0 border-end-0">
             <option value="daily">Daily</option>
             <option value="monthly">Monthly</option>
             <option value="yearly">Yearly</option>
@@ -205,7 +205,7 @@ option:focus{
 }
 option{
   box-shadow: 0 0 4px 0.05rem rgba(255, 255, 255, 0.55);
-  background-color: rgba(41, 91, 218, 0.75);
+  background-color: #455af3;
 }
 
 </style>

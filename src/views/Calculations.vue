@@ -38,7 +38,8 @@ export default {
 .calculations{
   background-color: rgba(255, 255, 255, 0.03);
   border-radius: 15px 70px;
-  border: 1px  solid #c9c8c8;
+  /*border: 1px  solid #c9c8c8;*/
   box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+
 }
 </style>
