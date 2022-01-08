@@ -5,6 +5,5 @@ describe('Home.vue', () => {
   it('', () => {
     const wrapper = mount(Home)
     expect(wrapper.html().includes('class="home"')).toBe(true)
-    console.log(wrapper.html())
   })
 })
