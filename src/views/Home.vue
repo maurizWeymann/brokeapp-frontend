@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" style="height: 60vh">
-    <HelloWorld msg="Hello World"/>
+    <HelloWorld class="text-light pt-5" msg="brokeApp by mauriz weymann"/>
   </div>
 </template>
 
