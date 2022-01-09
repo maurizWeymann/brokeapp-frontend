@@ -56,6 +56,10 @@ import LineChart from '@/components/LineChart'
 
 export default {
   props: ['calculation'],
+  initialInvestment: {
+    type: Number,
+    default: 0
+  },
   name: 'CalculationItem',
   components: {
     LineChart
@@ -81,19 +85,19 @@ export default {
       const result = calculate(this.initialInvestment, this.yearsToAccumulate, this.interestRate, this.compoundFrequency, this.additionalContribution)
       this.xValues = result.xValues
       this.yValues = result.yValues
-      console.log(`x:  ${this.xValues} `)
-      console.log(this.xValues)
-      console.log(`y:  ${this.yValues} `)
-      console.log(this.yValues)
+      // console.log(`x:  ${this.xValues} `)
+      // console.log(this.xValues)
+      // console.log(`y:  ${this.yValues} `)
+      // console.log(this.yValues)
       this.keyToChange += 1
       this.totalEarning = this.yValues[this.yValues.length - 1].toLocaleString()
     },
     async createCalculation () {
-      console.log(this.initialInvestment)
-      console.log(this.yearsToAccumulate)
-      console.log(this.additionalContribution)
-      console.log(this.interestRate)
-      console.log(this.compoundFrequency)
+      // console.log(this.initialInvestment)
+      // console.log(this.yearsToAccumulate)
+      // console.log(this.additionalContribution)
+      // console.log(this.interestRate)
+      // console.log(this.compoundFrequency)
       // const valid = this.validate()
       if (this.validate()) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/calculations'
