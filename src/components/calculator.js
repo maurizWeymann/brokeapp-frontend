@@ -29,7 +29,7 @@ export default function calculate (initialInvestment, yearToAccumulate, interest
     xValueArray.push(1)
     for (let i = 1; i <= 10; i++) {
       yCalculationArrayIndex = Math.round(oneTenthYearToAccumulate * (i))
-      console.log(yCalculationArrayIndex)
+      // console.log(yCalculationArrayIndex)
       xValueArray.push(yCalculationArrayIndex)
       yValueArray[i] = Math.round(yValueCalculation[yCalculationArrayIndex] * 100) / 100
     }
