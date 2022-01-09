@@ -21,6 +21,9 @@ export default {
             show: false
           }
         },
+        stroke: {
+          curve: 'straight'
+        },
         dataLabels: {
           enabled: false
         },
